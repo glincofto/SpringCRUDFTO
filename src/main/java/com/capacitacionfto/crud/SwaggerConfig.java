@@ -32,7 +32,7 @@ public class SwaggerConfig {
                 "",
                 new Contact("Name","url","email"),
                 "LICENSE",
-                "LICENSE URl",
+                "LICENSE URL",
                 Collections.emptyList()
         );
     }
