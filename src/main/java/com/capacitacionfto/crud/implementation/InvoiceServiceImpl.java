@@ -1,13 +1,11 @@
 package com.capacitacionfto.crud.implementation;
 
 import com.capacitacionfto.crud.dto.InvoiceDTO;
-import com.capacitacionfto.crud.dto.ProductDTO;
+import com.capacitacionfto.crud.mapper.InvoiceMapper;
 import com.capacitacionfto.crud.model.Invoice;
 import com.capacitacionfto.crud.model.InvoiceItem;
 import com.capacitacionfto.crud.repo.InvoiceRepo;
 import com.capacitacionfto.crud.service.InvoiceService;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -19,7 +17,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Resource
     private InvoiceRepo repo;
 
-    private ModelMapper mapper = new ModelMapper();
+    private InvoiceMapper mapper = new InvoiceMapper();
 
     @Override
     public InvoiceDTO add(Invoice invoice) {
@@ -29,12 +27,12 @@ public class InvoiceServiceImpl implements InvoiceService {
             total = total + (invoiceItem.getQuantity() * invoiceItem.getProduct().getSalePrice());
         }
         invoice.setTotal(total);
-        return mapper.map(repo.save(invoice), InvoiceDTO.class);
+        return mapper.mapInvoice(repo.save(invoice));
     }
 
     @Override
     public InvoiceDTO update(Invoice invoice) {
-        return mapper.map(repo.save(invoice), InvoiceDTO.class);
+        return mapper.mapInvoice(repo.save(invoice));
     }
 
     @Override
@@ -44,11 +42,11 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     @Override
     public InvoiceDTO detail(Long id) {
-        return mapper.map(repo.findById(id).get(), InvoiceDTO.class );
+        return mapper.mapInvoice(repo.getById(id));
     }
 
     @Override
     public List<InvoiceDTO> list() {
-        return mapper.map(repo.findAll(), new TypeToken<List<InvoiceDTO>>(){}.getType());
+        return mapper.listInvoice(repo.findAll());
     }
 }

@@ -1,11 +1,10 @@
 package com.capacitacionfto.crud.implementation;
 
 import com.capacitacionfto.crud.dto.ProductDTO;
+import com.capacitacionfto.crud.mapper.ProductMapper;
 import com.capacitacionfto.crud.model.Product;
 import com.capacitacionfto.crud.repo.ProductRepo;
 import com.capacitacionfto.crud.service.ProductService;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,16 +16,16 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepo repo;
 
-    private ModelMapper mapper = new ModelMapper();
+    private ProductMapper mapper = new ProductMapper();
 
     @Override
     public ProductDTO add(Product product) {
-        return mapper.map(repo.save(product), ProductDTO.class);
+        return mapper.mapProduct(repo.save(product));
     }
 
     @Override
     public ProductDTO update(Product product) {
-        return mapper.map(repo.save(product), ProductDTO.class);
+        return mapper.mapProduct(repo.save(product));
     }
 
     @Override
@@ -36,11 +35,11 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO detail(Long id) {
-        return mapper.map(repo.findById(id).get(), ProductDTO.class);
+        return mapper.mapProduct(repo.getById(id));
     }
 
     @Override
     public List<ProductDTO> list() {
-        return mapper.map(repo.findAll(), new TypeToken<List<ProductDTO>>(){}.getType());
+        return mapper.listProduct(repo.findAll());
     }
 }
