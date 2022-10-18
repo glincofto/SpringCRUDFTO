@@ -1,5 +1,6 @@
 package com.capacitacionfto.crud.service;
 
+import com.capacitacionfto.crud.dto.CustomerDTO;
 import com.capacitacionfto.crud.model.Customer;
 
 import java.util.List;
@@ -14,5 +15,5 @@ public interface CustomerService {
 
     Customer detail(Long id);
 
-    List<Customer> list();
+    List<CustomerDTO> list();
 }
