@@ -17,39 +17,23 @@ public class CustomerController {
 
     @PostMapping("/add")
     private ResponseEntity<?> add(@RequestBody Customer customer){
-        try{
-            return ResponseEntity.status(200).body(service.add(customer));
-        }catch(Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+        return ResponseEntity.status(200).body(service.add(customer));
     }
 
     @PutMapping("/update")
     private ResponseEntity<?> update(@RequestBody Customer customer) {
-        try {
-            return ResponseEntity.ok().body(service.update(customer));
-        }catch (RequestNotFoundException e) {
-            return ResponseEntity.status(404).body(e.getMessage());
-        }
+        return ResponseEntity.ok().body(service.update(customer));
     }
 
     @GetMapping("/detail/{id}")
     private ResponseEntity<?> detail(@PathVariable("id") Long id){
-        try{
-            return ResponseEntity.ok().body(service.detail(id));
-        }catch(RequestNotFoundException e){
-            return ResponseEntity.status(404).body(e.getMessage());
-        }
+        return ResponseEntity.ok().body(service.detail(id));
     }
 
     @DeleteMapping("/delete/{id}")
     private ResponseEntity<?> delete(@PathVariable("id") Long id){
-        try{
-            service.delete(id);
-            return ResponseEntity.ok().build();
-        }catch(RequestNotFoundException e){
-            return  ResponseEntity.status(404).body(e.getMessage());
-        }
+        service.delete(id);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/list")
