@@ -1,22 +1,28 @@
 package com.capacitacionfto.crud.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
+@Table(name="CustomerDB")
 public class Customer  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "customer_name", length = 100, nullable = false)
     private String name;
     private String lastname;
     private LocalDate dateOfBirth;
     private String mail;
+
+    @Lob
+    private String observations;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<Invoice> invoices;
 
     public Customer() {
     }
@@ -59,5 +65,21 @@ public class Customer  {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getObservations() {
+        return observations;
+    }
+
+    public void setObservations(String observations) {
+        this.observations = observations;
+    }
+
+    public Set<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(Set<Invoice> invoices) {
+        this.invoices = invoices;
     }
 }
