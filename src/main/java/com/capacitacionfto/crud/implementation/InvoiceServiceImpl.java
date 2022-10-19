@@ -19,6 +19,10 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     private InvoiceMapper mapper = new InvoiceMapper();
 
+    public InvoiceServiceImpl(InvoiceRepo repo) {
+        this.repo = repo;
+    }
+
     @Override
     public InvoiceDTO add(Invoice invoice) {
         Float total = 0f;

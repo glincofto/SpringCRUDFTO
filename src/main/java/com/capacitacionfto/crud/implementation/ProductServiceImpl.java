@@ -18,6 +18,10 @@ public class ProductServiceImpl implements ProductService {
 
     private ProductMapper mapper = new ProductMapper();
 
+    public ProductServiceImpl(ProductRepo repo) {
+        this.repo = repo;
+    }
+
     @Override
     public ProductDTO add(Product product) {
         return mapper.mapProduct(repo.save(product));

@@ -16,7 +16,6 @@ import org.springframework.dao.DataAccessException;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class CustomerServiceImplTest {
