@@ -70,12 +70,12 @@
 				<version>0.8.7</version>
 				<configuration>
 					<excludes>
-						<exclude>**/com/example/demo/**/controller/**</exclude>
-						<exclude>**/com/example/demo/**/exception/**</exclude>
-						<exclude>**/com/example/demo/**/DemoApplication.class</exclude>
-						<exclude>**/com/example/demo/**/SwaggerConfig.class</exclude>
-						<exclude>**/com/example/demo/**/model/**</exclude>
-						<exclude>**/com/example/demo/**/dto/**</exclude>
+						<exclude>**/com/capacitacionfto/crud/**/controller/**</exclude>
+						<exclude>**/com/capacitacionfto/crud/**/exception/**</exclude>
+						<exclude>**/com/capacitacionfto/crud/**/DemoApplication.class</exclude>
+						<exclude>**/com/capacitacionfto/crud/**/SwaggerConfig.class</exclude>
+						<exclude>**/com/capacitacionfto/crud/**/model/**</exclude>
+						<exclude>**/com/capacitacionfto/crud/**/dto/**</exclude>
 					</excludes>
 				</configuration>
 				<executions>
