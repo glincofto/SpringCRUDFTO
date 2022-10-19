@@ -68,6 +68,16 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.7</version>
+				<configuration>
+					<excludes>
+						<exclude>**/com/example/demo/**/controller/**</exclude>
+						<exclude>**/com/example/demo/**/exception/**</exclude>
+						<exclude>**/com/example/demo/**/DemoApplication.class</exclude>
+						<exclude>**/com/example/demo/**/SwaggerConfig.class</exclude>
+						<exclude>**/com/example/demo/**/model/**</exclude>
+						<exclude>**/com/example/demo/**/dto/**</exclude>
+					</excludes>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
