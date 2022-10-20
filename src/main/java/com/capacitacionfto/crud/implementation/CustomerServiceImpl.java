@@ -23,6 +23,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     private CustomerMapper mapper = new CustomerMapper();
 
+    public CustomerServiceImpl(CustomerRepo repo) {
+        this.repo = repo;
+    }
+
     @Override
     public Customer add(Customer customer) {
         dataValidation(customer);
