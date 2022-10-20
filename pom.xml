@@ -72,10 +72,13 @@
 					<excludes>
 						<exclude>**/com/capacitacionfto/crud/**/controller/**</exclude>
 						<exclude>**/com/capacitacionfto/crud/**/exception/**</exclude>
-						<exclude>**/com/capacitacionfto/crud/**/DemoApplication.class</exclude>
+						<exclude>**/com/capacitacionfto/crud/**/CrudApplication.class</exclude>
 						<exclude>**/com/capacitacionfto/crud/**/SwaggerConfig.class</exclude>
 						<exclude>**/com/capacitacionfto/crud/**/model/**</exclude>
 						<exclude>**/com/capacitacionfto/crud/**/dto/**</exclude>
+						<exclude>**/com/capacitacionfto/crud/**/mapper/**</exclude>
+						<exclude>**/com/capacitacionfto/crud/**/repo/**</exclude>
+						<exclude>**/com/capacitacionfto/crud/**/service/**</exclude>
 					</excludes>
 				</configuration>
 				<executions>
